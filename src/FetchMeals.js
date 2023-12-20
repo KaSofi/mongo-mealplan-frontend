@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const getAllMeals = (setMeal) => {
     /*  axios.get("https://localhost:7000")  */
-    axios.get("https://mongo-mealplan.onrender.com")
+    axios.get("https://mongodb-planer.onrender.com")
     .then(({data}) => {console.log(data)
     setMeal(data)
     })
@@ -12,7 +12,7 @@ const getAllMeals = (setMeal) => {
 /* добавить новую информацию */
 
 const addMeal = (name, setTitle, setMeal) => {
-    axios.post("https://mongo-mealplan.onrender.com/saveMeals", { name })
+    axios.post("https://mongodb-planer.onrender.com/saveMeals", { name })
     .then((data) => {
         console.log(data)
         setTitle('')
@@ -23,7 +23,7 @@ const addMeal = (name, setTitle, setMeal) => {
 /* редактировать информацию */
 
 const editMeal = (mealId, title, setTitle, setMeal, setEditing) => {
-    axios.post("https://mongo-mealplan.onrender.com/editMeal", { _id:mealId, title })
+    axios.post("https://mongodb-planer.onrender.com/editMeal", { _id:mealId, title })
     .then((data) => {
         console.log(data)
         setTitle('')
@@ -35,7 +35,7 @@ const editMeal = (mealId, title, setTitle, setMeal, setEditing) => {
 /* удалить информацию */
 
 const deleteMeal = (_id, setMeal) => {
-    axios.post("https://mongo-mealplan.onrender.com/deleteMeal", { _id })
+    axios.post("https://mongodb-planer.onrender.com/deleteMeal", { _id })
     .then((data) => {
         console.log(data)
         getAllMeals(setMeal)
