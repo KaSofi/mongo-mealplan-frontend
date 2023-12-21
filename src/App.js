@@ -34,9 +34,11 @@ function App() {
               onChange={(e) => setTitle(e.target.value) }
               />
               
-        <button onClick={ editing ? 
+        <button disabled={!title} /* диактивируем кнопку, пока input пустая */
+                onClick={ editing ? 
           () => editMeal(mealId, title, setTitle, setMeal, setEditing) :
-          () => addMeal(title, setTitle, setMeal)}>{editing ? "Edit" : "Add"}</button>
+          () => addMeal(title, setTitle, setMeal)}>{editing ? "Edit" : "Add"}
+        </button>
 
       {myMeal.map((meal) => <MyMeals key={meal._id} text={meal.name}
         updatingInInput={() => updatingInInput(meal._id, meal.name)}
@@ -45,6 +47,9 @@ function App() {
 
     </div>
   );
+}
+
+export default App;
 }
 
 export default App;
