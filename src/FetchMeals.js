@@ -22,8 +22,8 @@ const addMeal = (name, setTitle, setMeal) => {
 
 /* редактировать информацию */
 
-const editMeal = (mealId, title, setTitle, setMeal, setEditing) => {
-    axios.post("https://mongodb-planer.onrender.com/editMeal", { _id:mealId, title })
+const editMeal = (mealId, name, setTitle, setMeal, setEditing) => {
+    axios.post("https://mongodb-planer.onrender.com/editMeal", { _id:mealId, name })
     .then((data) => {
         console.log(data)
         setTitle('')
@@ -42,5 +42,13 @@ const deleteMeal = (_id, setMeal) => {
     })
 }
 
+const deleteAllMeal = (_id, setMeal ) => {
+    axios.post("https://mongodb-planer.onrender.com/deleteAllMeal", { _id })
+    .then((data) => {
+        console.log(data)
+        getAllMeals([])
+    })
+}
 
-export { getAllMeals, addMeal, editMeal, deleteMeal };
+
+export { getAllMeals, addMeal, editMeal, deleteMeal, deleteAllMeal };
