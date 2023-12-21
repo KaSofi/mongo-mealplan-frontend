@@ -42,13 +42,5 @@ const deleteMeal = (_id, setMeal) => {
     })
 }
 
-const deleteAllMeal = (_id, setMeal ) => {
-    axios.post("https://mongodb-planer.onrender.com/deleteAllMeal", { _id })
-    .then((data) => {
-        console.log(data)
-        getAllMeals([])
-    })
-}
 
-
-export { getAllMeals, addMeal, editMeal, deleteMeal, deleteAllMeal };
+export { getAllMeals, addMeal, editMeal, deleteMeal };
